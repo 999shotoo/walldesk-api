@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const id = params.id;
+import { NextRequest } from 'next/server';
+
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params;
   const chunkDir = path.join(process.cwd(), 'content', 'wallpaper_chunks');
   const chunkFiles = fs.readdirSync(chunkDir).filter(f => f.endsWith('.json')).sort();
   let found = null;
