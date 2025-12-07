@@ -5,10 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "scrape": "node scrapper/index.js"
   },
   "dependencies": {
+    "get-image-colors": "^4.0.1",
+    "https-proxy-agent": "^7.0.6",
     "next": "16.0.7",
+    "node-fetch": "^2.7.0",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
